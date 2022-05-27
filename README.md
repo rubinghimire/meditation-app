@@ -1,2 +1,2 @@
 # meditation-app
-Meditation app tutorial
+Meditation app as taught by Dev Ed
