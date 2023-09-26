@@ -5,4 +5,4 @@
 # Changes
 - Added responsive design (tested in mobile/tablet screens)
 - Added comments to JS file
-- Changed default time display value
+- Added a new function to change default time display format
