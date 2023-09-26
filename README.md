@@ -1,8 +1,11 @@
 # About
-- Meditation app made with the help of Simo Edwin's tutorial.
+- Meditation app made with the help of Simo Edwin's video tutorial.
 - [Original Repo Link](https://github.com/developedbyed/meditation-app)
 
 # Changes
-- Added responsive design
-- Added comments to JS file
-- Added a new JS function to change default time display format
+- Implemented responsive design for mobile devices.
+- Enhanced JS file with informative comments.
+- Improved the display format to show two-digit seconds, similar to a clock.
+- Incorporated a feature that allows users to set the meditation timer based on their input.
+
+
