@@ -3,6 +3,6 @@
 - [Original Repo Link](https://github.com/developedbyed/meditation-app)
 
 # Changes
-- Added responsive design (tested in mobile/tablet screens)
+- Added responsive design
 - Added comments to JS file
-- Added a new function to change default time display format
+- Added a new JS function to change default time display format
