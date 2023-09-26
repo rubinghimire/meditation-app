@@ -17,9 +17,18 @@ let fakeDuration = 300;
 outline.style.strokeDashoffset = outlineLength;
 outline.style.strokeDasharray = outlineLength;
 
+//Function to format time with two digits
+//Using toLocaleString to get two digits for seconds
+function formatTime(timeInSeconds) {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60).toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+  });
+  return `${minutes}:${seconds}`;
+}
+
 //Initialize time display
-timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-  fakeDuration % 60)}`;
+timeDisplay.textContent = formatTime(fakeDuration);
 
 //Event listener for sound picker buttons
 sounds.forEach(sound => {
@@ -38,6 +47,7 @@ play.addEventListener("click", function() {
 //Event listener for replay button
 replay.addEventListener("click", function() {
     restartSong(song);
+    timeDisplay.textContent = formatTime(fakeDuration);
 });
 
 //Function to restart the song
@@ -49,9 +59,7 @@ const restartSong = song =>{
 timeSelect.forEach(option => {
   option.addEventListener("click", function() {
     fakeDuration = this.getAttribute("data-time");
-    timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-      fakeDuration % 60
-    )}`;
+    timeDisplay.textContent = formatTime(fakeDuration);
   });
 });
 
@@ -72,9 +80,7 @@ const checkPlaying = song => {
 song.ontimeupdate = function() {
   let currentTime = song.currentTime;
   let elapsed = fakeDuration - currentTime;
-  let seconds = Math.floor(elapsed % 60);
-  let minutes = Math.floor(elapsed / 60);
-  timeDisplay.textContent = `${minutes}:${seconds}`;
+  timeDisplay.textContent = formatTime(elapsed);
   let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
   outline.style.strokeDashoffset = progress;
 
