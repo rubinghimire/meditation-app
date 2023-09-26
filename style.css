@@ -34,6 +34,23 @@
   transition: all 0.5s ease;
 }
 
+.time-select input {
+  background: lightcyan;
+  color: black;
+  width: 340px; 
+  height: 45px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: all 0.5s ease;
+}
+
+.time-select button:hover {
+  background: white;
+  color: black;
+}
+
 .sound-picker button {
   border: none;
   height: 120px;
@@ -50,11 +67,6 @@
 .sound-picker button img {
   position: sticky;
   height: 110%;
-}
-
-.time-select button:hover {
-  background: white;
-  color: black;
 }
 
 .player-container {
@@ -97,8 +109,12 @@ video {
   min-height: 100%;
 }
 
+/* Change width of input after user presses enter */
+.input-expanded {
+  width: 30% !important;
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
   .app {
     flex-direction: column; /* Stack elements vertically on smaller screens */
     align-items: center; /* Center all elements vertically */
@@ -112,6 +128,12 @@ video {
     height: 20%;
     font-size: 14px;
   }
+
+  .time-select input.filled {
+    width: 100% !important;
+    height: 20%;
+  }
+
   .sound-picker button {
     width: 50%;
     padding: 10px;
