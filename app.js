@@ -1,23 +1,27 @@
-const song = document.querySelector(".song");
-const play = document.querySelector(".play");
-const replay = document.querySelector(".replay");
-const outline = document.querySelector(".moving-outline circle");
-const video = document.querySelector(".vid-container video");
+const song = document.querySelector(".song"); //Audio element
+const play = document.querySelector(".play"); //Play button
+const replay = document.querySelector(".replay"); //Replay button
+const outline = document.querySelector(".moving-outline circle"); //Circle element
+const video = document.querySelector(".vid-container video"); //Video element
 //Sounds
 const sounds = document.querySelectorAll(".sound-picker button");
 //Time Display
 const timeDisplay = document.querySelector(".time-display");
+//Calculate outline length
 const outlineLength = outline.getTotalLength();
 //Duration
 const timeSelect = document.querySelectorAll(".time-select button");
-let fakeDuration = 600;
+let fakeDuration = 300;
 
+//Initialize outline properties
 outline.style.strokeDashoffset = outlineLength;
 outline.style.strokeDasharray = outlineLength;
-timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-  fakeDuration % 60
-)}`;
 
+//Initialize time display
+timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+  fakeDuration % 60)}`;
+
+//Event listener for sound picker buttons
 sounds.forEach(sound => {
   sound.addEventListener("click", function() {
     song.src = this.getAttribute("data-sound");
@@ -26,21 +30,22 @@ sounds.forEach(sound => {
   });
 });
 
+//Event listener for play button
 play.addEventListener("click", function() {
   checkPlaying(song);
 });
 
+//Event listener for replay button
 replay.addEventListener("click", function() {
     restartSong(song);
 });
 
-
+//Function to restart the song
 const restartSong = song =>{
-    let currentTime = song.currentTime;
     song.currentTime = 0;
-    console.log("hello")
 }
 
+//Event listener for time select buttons
 timeSelect.forEach(option => {
   option.addEventListener("click", function() {
     fakeDuration = this.getAttribute("data-time");
@@ -50,6 +55,7 @@ timeSelect.forEach(option => {
   });
 });
 
+//Function to play or pause the audio and video
 const checkPlaying = song => {
   if (song.paused) {
     song.play();
@@ -62,6 +68,7 @@ const checkPlaying = song => {
   }
 };
 
+//Update time display and progress bar
 song.ontimeupdate = function() {
   let currentTime = song.currentTime;
   let elapsed = fakeDuration - currentTime;
