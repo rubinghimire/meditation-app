@@ -69,14 +69,17 @@
 .player-container svg {
   position: absolute;
   height: 50%;
+  min-height: 140px; /* Set a minimum height */
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
   pointer-events: none;
 }
+
 .player-container svg circle {
   transition: all 0.2s ease-in-out;
 }
+
 .time-display {
   color: white;
   position: absolute;
