@@ -48,7 +48,8 @@
   background: #a14f49;
 }
 .sound-picker button img {
-  height: 100%;
+  position: sticky;
+  height: 110%;
 }
 
 .time-select button:hover {
@@ -117,8 +118,9 @@ video {
   }
 
   .time-display {
+    position: absolute;
     font-size: 24px;
-    top: 90%;
+    top: 110%;
   }
  
   .replay {
