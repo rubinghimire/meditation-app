@@ -1,4 +1,4 @@
-# About
+# Meditation App
 - Meditation app that plays ambient sounds for given length of time
 - Allows user to choose between two ambient sounds
 - Allows user input for time or to select time from given options
